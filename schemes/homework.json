@@ -1,0 +1,91 @@
+{
+  "mode": "manual",
+  "nodes": [
+    {
+      "id": "start",
+      "type": "start",
+      "text": "Начало",
+      "position": {
+        "x": 300,
+        "y": 60
+      }
+    },
+    {
+      "id": "const",
+      "type": "process",
+      "text": "y = 0.869e-2\nz = -0.13e3",
+      "position": {
+        "x": 300,
+        "y": 190
+      }
+    },
+    {
+      "id": "input",
+      "type": "input_output",
+      "text": "Ввести x",
+      "position": {
+        "x": 300,
+        "y": 330
+      }
+    },
+    {
+      "id": "calc",
+      "type": "process",
+      "text": "h = (pow(x, y + 1) +\nexp(y - 1)) /\n(1 + x * fabs(y - tan(z)))\n* (1 + fabs(y - x))\n+ pow(fabs(y - x), 2) / 2\n- pow(fabs(y - x), 3) / 3",
+      "position": {
+        "x": 300,
+        "y": 570
+      }
+    },
+    {
+      "id": "output",
+      "type": "input_output",
+      "text": "Вывести x, y, z, h",
+      "position": {
+        "x": 300,
+        "y": 830
+      }
+    },
+    {
+      "id": "end",
+      "type": "end",
+      "text": "Конец",
+      "position": {
+        "x": 300,
+        "y": 970
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "start",
+      "to": "const",
+      "from_port": "s",
+      "to_port": "n"
+    },
+    {
+      "from": "const",
+      "to": "input",
+      "from_port": "s",
+      "to_port": "n"
+    },
+    {
+      "from": "input",
+      "to": "calc",
+      "from_port": "s",
+      "to_port": "n"
+    },
+    {
+      "from": "calc",
+      "to": "output",
+      "from_port": "s",
+      "to_port": "n"
+    },
+    {
+      "from": "output",
+      "to": "end",
+      "from_port": "s",
+      "to_port": "n"
+    }
+  ]
+}
